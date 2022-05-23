@@ -26,6 +26,14 @@ parser.add_argument(
 )
 
 parser.add_argument(
+    "-o",
+    "--output-file",
+    type=str,
+    default="",
+    help="the output filename you want"
+)
+
+parser.add_argument(
     "--replace",
     action="store_true",
     help="to use if you want to replace the original file"
@@ -56,5 +64,6 @@ file = File(args.file)
 
 file.xor_crypt(
     password=args.password,
+    output_name=args.output_file,
     replace_file=args.replace
 )

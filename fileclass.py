@@ -25,11 +25,12 @@ class File:
         encrypted_filename = f"{self.__filename}.xor"
 
     
-    def xor_crypt(self, password : str, replace_file : bool = True) -> None :
-        if replace_file:
-            output_name = self.__filename
-        else:
-            output_name = f"{self.__filename}.copy"
+    def xor_crypt(self, password : str, output_name : str = "", replace_file : bool = True) -> None :
+        if not output_name:
+            if replace_file:
+                output_name = self.__filename
+            else:
+                output_name = f"{self.__filename}.copy"
 
         
         hashed_password = hashlib.sha256(password.encode('utf-8')).digest()
