@@ -42,6 +42,7 @@ class File:
 
                     i += 1
 
+        os.remove(self.__filename)
         os.rename(f"{self.__filename}.copy", output_name)
 
 
